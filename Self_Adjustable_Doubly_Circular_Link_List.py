@@ -103,7 +103,7 @@ class LRU_LinkList:
         for i in range(n):
             self.accessPage(arr[i])
             # print("Access Page: ", arr[i])
-            self.traverse()
+            # self.traverse()
 
     def hit_ratio(self):
         return self.hit / (self.hit + self.miss)
@@ -112,11 +112,11 @@ class LRU_LinkList:
         while (self.size):
             self.deleteAt(0)
 
-if __name__ == '__main__':
-    capacity = 5
-    lru = LRU_LinkList(capacity)
-    arr = [1, 2, 3, 4, 5, 2, 10, 7, 11, 1]
-    n = len(arr)
-    lru.LRU_Op(arr, n)
-    print("Hit Ratio: ", lru.hit_ratio())
+# if __name__ == '__main__':
+#     capacity = 5
+#     lru = LRU_LinkList(capacity)
+#     arr = [1, 2, 3, 4, 5, 2, 10, 7, 11, 1]
+#     n = len(arr)
+#     lru.LRU_Op(arr, n)
+#     print("Hit Ratio: ", lru.hit_ratio())
     

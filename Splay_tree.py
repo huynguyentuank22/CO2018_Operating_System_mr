@@ -144,9 +144,9 @@ class LRU_SplayTree:
     def LRU_Op(self, arr, n):
         for i in range(n):
             self.accessPage(arr[i])
-            print("Access Page: ", arr[i])
-            self.traverse(self.root)
-            print()
+            # print("Access Page: ", arr[i])
+            # self.traverse(self.root)
+            # print()
 
     def hit_ratio(self):
         return self.hit / (self.hit + self.miss)
@@ -159,10 +159,10 @@ class LRU_SplayTree:
         del self.root
         self.size = self.size - 1
 
-if __name__ == '__main__':
-    capacity = 4
-    arr = [1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5]
-    n = len(arr)
-    lru = LRU_SplayTree(4)
-    lru.LRU_Op(arr, n)
-    print("Hit Ratio: ", lru.hit_ratio())
+# if __name__ == '__main__':
+#     capacity = 4
+#     arr = [1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5]
+#     n = len(arr)
+#     lru = LRU_SplayTree(4)
+#     lru.LRU_Op(arr, n)
+#     print("Hit Ratio: ", lru.hit_ratio())

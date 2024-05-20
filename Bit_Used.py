@@ -60,16 +60,16 @@ class LRU_BitUsed:
     def LRU_Op(self, arr, n):
         for i in range(n):
             self.accessPage(arr[i])
-            print("Access Page: ", arr[i])
-            self.print_Cache()
+            # print("Access Page: ", arr[i])
+            # self.print_Cache()
 
     def hit_ratio(self):
         return self.hit / (self.hit + self.miss)
     
-if __name__ == '__main__':
-    capacity = 4
-    arr = [1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5]
-    n = len(arr)
-    lru = LRU_BitUsed(capacity)
-    lru.LRU_Op(arr, n)
-    print("Hit Ratio: ", lru.hit_ratio())
+# if __name__ == '__main__':
+#     capacity = 4
+#     arr = [1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5]
+#     n = len(arr)
+#     lru = LRU_BitUsed(capacity)
+#     lru.LRU_Op(arr, n)
+#     print("Hit Ratio: ", lru.hit_ratio())
