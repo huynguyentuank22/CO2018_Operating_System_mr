@@ -149,15 +149,19 @@ class LRU_SplayTree:
             # print()
 
     def hit_ratio(self):
-        return self.hit / (self.hit + self.miss)
+        return self.hit / (self.hit + self.miss) * 100
+    
+    def free(self, root):
+        if not root:
+            return
+        self.free(root.left)
+        self.free(root.right)
+        root.left = root.right = root.parent = None
     
     def free_cache(self):
-        if self.root == None:
-            return
-        self.free_cache(self.root.left)
-        self.free_cache(self.root.right)
-        del self.root
-        self.size = self.size - 1
+        self.free(self.root)
+        self.root = None
+        self.size = 0
 
 # if __name__ == '__main__':
 #     capacity = 4

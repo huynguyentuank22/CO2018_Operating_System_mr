@@ -106,7 +106,7 @@ class LRU_LinkList:
             # self.traverse()
 
     def hit_ratio(self):
-        return self.hit / (self.hit + self.miss)
+        return self.hit / (self.hit + self.miss) * 100
     
     def free_cache(self):
         while (self.size):

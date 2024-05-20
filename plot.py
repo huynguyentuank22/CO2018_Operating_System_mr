@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 
 
-def plot_result(hit_ratio, ref_str):
+def plot_result(hit_ratio, ref_str, type):
     # Plotting the data
     plt.figure(figsize=(10, 6))
 
@@ -10,9 +10,9 @@ def plot_result(hit_ratio, ref_str):
     plt.plot(ref_str, hit_ratio['BitUsed'], label='Bit Used', marker='^')
 
     # Adding titles and labels
-    plt.title('Hit Ratios of LRU Structures vs. Length of Reference Strings')
-    plt.xlabel('Length of Reference String')
-    plt.ylabel('Hit Ratio')
+    plt.title('Hit Ratios of LRU Structures with ' + type + ' trace')
+    plt.xlabel('Number of page references')
+    plt.ylabel('Hit Ratio (%)')
     plt.legend()
 
     # Display the plot

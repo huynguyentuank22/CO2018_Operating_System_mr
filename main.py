@@ -4,26 +4,32 @@ from Splay_tree import *
 from Skip_List import *
 from randtest import *
 from plot import *
-if __name__ == '__main__':
-    # cap = [8,16,32,64,128,256]
-    # lrubyDCLL = LRU_LinkList(128)
-    # lrubySplayTree = LRU_SplayTree(128)
-    # lrubyBitUsed = LRU_BitUsed(128)
-    sz_ref_str = [1000, 10000, 25000, 50000, 100000]
 
+if __name__ == '__main__':
+    sz_ref_str = [1000, 10000, 25000, 50000, 100000]
     hit_rateofDCLL, hit_rateofSplayTree, hit_rateofBitUsed = [], [], []
-    ref_str = inpTest()
+
+    cache_size = int(input("Enter the cache size: "))
+    type = input("Enter the type of reference string: ")
+    ref_str = inpTest(type)
+
     for sz in sz_ref_str:
         # print(sz, end="\n")
-        lrubyDCLL = LRU_LinkList(256)
-        lrubySplayTree = LRU_SplayTree(256)
-        lrubyBitUsed = LRU_BitUsed(256)
+        lrubyDCLL = LRU_LinkList(cache_size)
+        lrubySplayTree = LRU_SplayTree(cache_size)
+        lrubyBitUsed = LRU_BitUsed(cache_size)
+
         lrubyDCLL.LRU_Op(ref_str[0:sz], sz)
         lrubySplayTree.LRU_Op(ref_str[0:sz], sz)
         lrubyBitUsed.LRU_Op(ref_str[0:sz], sz)
-        hit_rateofDCLL.append(lrubyDCLL.hit_ratio()*100)
-        hit_rateofSplayTree.append(lrubySplayTree.hit_ratio()*100)
-        hit_rateofBitUsed.append(lrubyBitUsed.hit_ratio()*100)
+
+        hit_rateofDCLL.append(lrubyDCLL.hit_ratio())
+        hit_rateofSplayTree.append(lrubySplayTree.hit_ratio())
+        hit_rateofBitUsed.append(lrubyBitUsed.hit_ratio())
+
+        lrubyDCLL.free_cache()
+        lrubySplayTree.free_cache()
+        lrubyBitUsed.free_cache()
         
     
     # with open("output.txt", 'w') as out:
@@ -39,5 +45,5 @@ if __name__ == '__main__':
         "SplayTree": hit_rateofSplayTree,
         "BitUsed": hit_rateofBitUsed
     }
-    plot_result(hit_res, sz_ref_str)
+    plot_result(hit_res, sz_ref_str, type)
         

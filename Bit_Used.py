@@ -64,7 +64,13 @@ class LRU_BitUsed:
             # self.print_Cache()
 
     def hit_ratio(self):
-        return self.hit / (self.hit + self.miss)
+        return self.hit / (self.hit + self.miss) * 100
+    
+    def free_cache(self):
+        for entry in self.entries:
+            entry.valid = False
+            entry.used = False
+            entry.page = -1
     
 # if __name__ == '__main__':
 #     capacity = 4
