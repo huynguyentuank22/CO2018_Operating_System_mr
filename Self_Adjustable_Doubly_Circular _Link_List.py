@@ -101,8 +101,8 @@ class LRU_LinkList:
 
     def LRU_Op(self, arr, n):
         for i in range(n):
-            # print("Access Page: ", arr[i])
             self.accessPage(arr[i])
+            # print("Access Page: ", arr[i])
             self.traverse()
 
     def hit_ratio(self):
