@@ -12,16 +12,15 @@ if __name__ == '__main__':
     sz_ref_str = [1000, 10000, 25000, 50000, 100000]
 
     hit_rateofDCLL, hit_rateofSplayTree, hit_rateofBitUsed = [], [], []
-    ref_str = []
+    ref_str = inpTest()
     for sz in sz_ref_str:
         # print(sz, end="\n")
-        ref_str = randTest(sz, 256, ref_str)
         lrubyDCLL = LRU_LinkList(256)
         lrubySplayTree = LRU_SplayTree(256)
         lrubyBitUsed = LRU_BitUsed(256)
-        lrubyDCLL.LRU_Op(ref_str, len(ref_str))
-        lrubySplayTree.LRU_Op(ref_str, len(ref_str))
-        lrubyBitUsed.LRU_Op(ref_str, len(ref_str))
+        lrubyDCLL.LRU_Op(ref_str[0:sz], sz)
+        lrubySplayTree.LRU_Op(ref_str[0:sz], sz)
+        lrubyBitUsed.LRU_Op(ref_str[0:sz], sz)
         hit_rateofDCLL.append(lrubyDCLL.hit_ratio()*100)
         hit_rateofSplayTree.append(lrubySplayTree.hit_ratio()*100)
         hit_rateofBitUsed.append(lrubyBitUsed.hit_ratio()*100)
