@@ -7,7 +7,7 @@ from plot import *
 
 if __name__ == '__main__':
     sz_ref_str = [1000, 10000, 25000, 50000, 100000]
-    hit_rateofDCLL, hit_rateofSplayTree, hit_rateofBitUsed = [], [], []
+    hit_rateofDCLL, hit_rateofSplayTree, hit_rateofBitUsed, hit_rateofSkipList = [], [], [], []
 
     cache_size = int(input("Enter the cache size: "))
     type = input("Enter the type of reference string: ")
@@ -18,18 +18,22 @@ if __name__ == '__main__':
         lrubyDCLL = LRU_LinkList(cache_size)
         lrubySplayTree = LRU_SplayTree(cache_size)
         lrubyBitUsed = LRU_BitUsed(cache_size)
+        lrubySkipList = LRU_SkipList(cache_size)
 
         lrubyDCLL.LRU_Op(ref_str[0:sz], sz)
         lrubySplayTree.LRU_Op(ref_str[0:sz], sz)
         lrubyBitUsed.LRU_Op(ref_str[0:sz], sz)
+        lrubySkipList.LRU_Op(ref_str[0:sz], sz)
 
         hit_rateofDCLL.append(lrubyDCLL.hit_ratio())
         hit_rateofSplayTree.append(lrubySplayTree.hit_ratio())
         hit_rateofBitUsed.append(lrubyBitUsed.hit_ratio())
+        hit_rateofSkipList.append(lrubySkipList.hit_ratio())
 
         lrubyDCLL.free_cache()
         lrubySplayTree.free_cache()
         lrubyBitUsed.free_cache()
+        lrubySkipList.free_cache()
         
     
     # with open("output.txt", 'w') as out:
@@ -43,7 +47,8 @@ if __name__ == '__main__':
     hit_res = {
         "DCLL": hit_rateofDCLL,
         "SplayTree": hit_rateofSplayTree,
-        "BitUsed": hit_rateofBitUsed
+        "BitUsed": hit_rateofBitUsed,
+        "SkipList": hit_rateofSkipList
     }
-    plot_result(hit_res, sz_ref_str, type)
+    plot_result(hit_res, sz_ref_str, cache_size, type, sz_ref_str)
         

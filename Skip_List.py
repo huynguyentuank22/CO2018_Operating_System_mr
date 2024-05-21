@@ -29,6 +29,8 @@ class Level:
         self.size = self.size + 1
     
     def deleteAt(self, index):
+        if self.next == None:
+            return (None, None)
         if index == 0:
             tmp = self.next
             page = tmp.page
@@ -41,7 +43,7 @@ class Level:
                 del tmp
         else:
             curr = self.next
-            for i in range(index-1):
+            for _ in range(index-1):
                 curr = curr.next
             page = curr.next.page
             freq = curr.next.freq
@@ -77,9 +79,8 @@ class LRU_SkipList:
         self.size = self.size + 1
 
     def deleteAtLastOfBottomLayer(self):
-        page = self.head.deleteAt(self.head.size - 1)
+        self.head.deleteAt(self.head.size - 1)
         self.size = self.size - 1
-        return page
     
     def searchPage(self, page):
         if self.head == None:
@@ -96,7 +97,7 @@ class LRU_SkipList:
                         return (curr, level, index)
                     curr = curr.next
                     index = index + 1 
-            level = level.bot
+                level = level.bot
         return (None, None, None)
     
     def moveUpperLayer(self, level, index):
@@ -113,16 +114,16 @@ class LRU_SkipList:
     def accessPage(self, page):
         curr, level, index = self.searchPage(page)
         if curr != None:
-            print('hit')
+            # print('hit')
             self.hit = self.hit + 1
             curr.increment_freq()
-            print(curr.freq)
+            # print(curr.freq)
             if curr.freq > level.freq:
                 self.moveUpperLayer(level, index)
             else:
                 level.moveToFront(index)
         else:
-            print('miss')
+            # print('miss')
             self.miss = self.miss + 1
             if self.size < self.capacity:
                 self.insertToFrontOfBottomLayer(page)
@@ -133,8 +134,8 @@ class LRU_SkipList:
     def LRU_Op(self, arr, n):
         for i in range(n):
             self.accessPage(arr[i])
-            print("Page: ", arr[i])
-            self.print_cache()
+            # print("Page: ", arr[i])
+            # self.print_cache()
 
     def hit_ratio(self):
         return self.hit / (self.hit + self.miss) * 100
@@ -151,10 +152,17 @@ class LRU_SkipList:
             level = level.bot
         print("End")
 
-if __name__ == '__main__':
-    capacity = 128
-    lru = LRU_SkipList(capacity)
-    arr = [48]*6 + [65]*10 + [77]*9 + [32]*8 + [98]*5 + [87]*7 + [32] + [65] + [25]*16 + [99]*40
-    n = len(arr)
-    lru.LRU_Op(arr, n)
-    print("Hit Ratio: ", lru.hit_ratio())
+    def free_cache(self):
+        level = self.tail
+        while level != None:
+            while level.size:
+                level.deleteAt(0)
+            level = level.bot
+
+# if __name__ == '__main__':
+#     capacity = 128
+#     lru = LRU_SkipList(capacity)
+#     arr = [48]*6 + [65]*10 + [77]*9 + [32]*8 + [98]*5 + [87]*7 + [32] + [65] + [25]*16 + [99]*40
+#     n = len(arr)
+#     lru.LRU_Op(arr, n)
+#     print("Hit Ratio: ", lru.hit_ratio())
