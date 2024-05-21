@@ -1,0 +1,265 @@
+miss
+Page:  48
+Start
+48 (1)  
+End
+hit
+2
+Page:  48
+Start
+48 (2)  
+End
+hit
+3
+Page:  48
+Start
+48 (3)  
+End
+hit
+4
+Page:  48
+Start
+48 (4)  
+End
+hit
+5
+Page:  48
+Start
+48 (5)  
+End
+hit
+6
+Page:  48
+Start
+48 (6)  
+End
+miss
+Page:  65
+Start
+65 (1)  48 (6)  
+End
+hit
+2
+Page:  65
+Start
+65 (2)  48 (6)  
+End
+hit
+3
+Page:  65
+Start
+65 (3)  48 (6)  
+End
+hit
+4
+Page:  65
+Start
+65 (4)  48 (6)  
+End
+hit
+5
+Page:  65
+Start
+65 (5)  48 (6)  
+End
+hit
+6
+Page:  65
+Start
+65 (6)  48 (6)  
+End
+hit
+7
+Page:  65
+Start
+65 (7)  48 (6)  
+End
+hit
+8
+Page:  65
+Start
+65 (8)  48 (6)  
+End
+hit
+9
+Page:  65
+Start
+65 (9)  48 (6)  
+End
+hit
+10
+Page:  65
+Start
+65 (10)  48 (6)  
+End
+miss
+Page:  77
+Start
+77 (1)  65 (10)  48 (6)  
+End
+hit
+2
+Page:  77
+Start
+77 (2)  65 (10)  48 (6)  
+End
+hit
+3
+Page:  77
+Start
+77 (3)  65 (10)  48 (6)  
+End
+hit
+4
+Page:  77
+Start
+77 (4)  65 (10)  48 (6)  
+End
+hit
+5
+Page:  77
+Start
+77 (5)  65 (10)  48 (6)  
+End
+hit
+6
+Page:  77
+Start
+77 (6)  65 (10)  48 (6)  
+End
+hit
+7
+Page:  77
+Start
+77 (7)  65 (10)  48 (6)  
+End
+hit
+8
+Page:  77
+Start
+77 (8)  65 (10)  48 (6)  
+End
+hit
+9
+Page:  77
+Start
+77 (9)  65 (10)  48 (6)  
+End
+miss
+Page:  32
+Start
+32 (1)  77 (9)  65 (10)  48 (6)  
+End
+hit
+2
+Page:  32
+Start
+32 (2)  77 (9)  65 (10)  48 (6)  
+End
+hit
+3
+Page:  32
+Start
+32 (3)  77 (9)  65 (10)  48 (6)  
+End
+hit
+4
+Page:  32
+Start
+32 (4)  77 (9)  65 (10)  48 (6)  
+End
+hit
+5
+Page:  32
+Start
+32 (5)  77 (9)  65 (10)  48 (6)  
+End
+hit
+6
+Page:  32
+Start
+32 (6)  77 (9)  65 (10)  48 (6)  
+End
+hit
+7
+Page:  32
+Start
+32 (7)  77 (9)  65 (10)  48 (6)  
+End
+hit
+8
+Page:  32
+Start
+32 (8)  77 (9)  65 (10)  48 (6)  
+End
+miss
+Page:  98
+Start
+98 (1)  32 (8)  77 (9)  65 (10)  48 (6)  
+End
+hit
+2
+Page:  98
+Start
+98 (2)  32 (8)  77 (9)  65 (10)  48 (6)  
+End
+hit
+3
+Page:  98
+Start
+98 (3)  32 (8)  77 (9)  65 (10)  48 (6)  
+End
+hit
+4
+Page:  98
+Start
+98 (4)  32 (8)  77 (9)  65 (10)  48 (6)  
+End
+hit
+5
+Page:  98
+Start
+98 (5)  32 (8)  77 (9)  65 (10)  48 (6)  
+End
+miss
+Page:  87
+Start
+87 (1)  98 (5)  32 (8)  77 (9)  65 (10)  48 (6)  
+End
+hit
+2
+Page:  87
+Start
+87 (2)  98 (5)  32 (8)  77 (9)  65 (10)  48 (6)  
+End
+hit
+3
+Page:  87
+Start
+87 (3)  98 (5)  32 (8)  77 (9)  65 (10)  48 (6)  
+End
+hit
+4
+Page:  87
+Start
+87 (4)  98 (5)  32 (8)  77 (9)  65 (10)  48 (6)  
+End
+hit
+5
+Page:  87
+Start
+87 (5)  98 (5)  32 (8)  77 (9)  65 (10)  48 (6)  
+End
+hit
+6
+Page:  87
+Start
+87 (6)  98 (5)  32 (8)  77 (9)  65 (10)  48 (6)  
+End
+hit
+7
+Page:  87
+Start
+87 (7)  98 (5)  32 (8)  77 (9)  65 (10)  48 (6)  
+End
+Hit Ratio:  86.66666666666667
