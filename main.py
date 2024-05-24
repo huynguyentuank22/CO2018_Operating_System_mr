@@ -18,7 +18,7 @@ if __name__ == '__main__':
         lrubyDCLL = LRU_LinkList(cache_size)
         lrubySplayTree = LRU_SplayTree(cache_size)
         lrubyBitUsed = LRU_BitUsed(cache_size)
-        lrubySkipList = LRU_SkipList(cache_size)
+        lrubySkipList = LRU_SkipList(cache_size, sz/50)
 
         lrubyDCLL.LRU_Op(ref_str[0:sz], sz)
         lrubySplayTree.LRU_Op(ref_str[0:sz], sz)

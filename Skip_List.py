@@ -65,16 +65,17 @@ class Level:
         self.insertToFront(page, freq)
 
 class LRU_SkipList:
-    def __init__(self, capacity):
+    def __init__(self, capacity, max_freq):
         self.head = self.tail = None
         self.capacity = capacity
         self.size = 0
         self.hit = 0
         self.miss = 0
+        self.max_freq = max_freq
 
     def insertToFrontOfBottomLayer(self, page):
         if self.head == None:
-            self.head = self.tail = Level(10)
+            self.head = self.tail = Level(self.max_freq)
         self.head.insertToFront(page)
         self.size = self.size + 1
 
@@ -103,7 +104,7 @@ class LRU_SkipList:
     def moveUpperLayer(self, level, index):
         page, freq = level.deleteAt(index)
         if level.top == None:
-            newLevel = Level(level.freq + 10)
+            newLevel = Level(level.freq + self.max_freq)
             newLevel.insertToFront(page, freq)
             level.top = newLevel
             newLevel.bot = level
@@ -131,10 +132,10 @@ class LRU_SkipList:
                 self.deleteAtLastOfBottomLayer()
                 self.insertToFrontOfBottomLayer(page)
 
-    def LRU_Op(self, arr, n):
+    def LRU_Op(self, ref_str, n):
         for i in range(n):
-            self.accessPage(arr[i])
-            # print("Page: ", arr[i])
+            self.accessPage(ref_str[i])
+            # print("Page: ", ref_str[i])
             # self.print_cache()
 
     def hit_ratio(self):
@@ -162,7 +163,15 @@ class LRU_SkipList:
 # if __name__ == '__main__':
 #     capacity = 128
 #     lru = LRU_SkipList(capacity)
-#     arr = [48]*6 + [65]*10 + [77]*9 + [32]*8 + [98]*5 + [87]*7 + [32] + [65] + [25]*16 + [99]*40
-#     n = len(arr)
-#     lru.LRU_Op(arr, n)
+#     ref_str = []
+#     with open("input/" + "gcc" + ".trace", 'r') as inp:
+#         res = inp.readlines()
+#         # print(res)
+#         for item in res:
+#             addr = item[0:9]
+#             page = int(int(addr, 16) / (4096))
+#             ref_str.append(page)
+#     n = len(ref_str[:100000])
+#     lru.LRU_Op(ref_str[:100000], n)
 #     print("Hit Ratio: ", lru.hit_ratio())
+#     lru.print_cache()

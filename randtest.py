@@ -15,5 +15,6 @@ def inpTest(type):
             addr = item[0:9]
             page = int(int(addr, 16) / (4096))
             ref_str.append(page)
+        # ref_str = list(filter((lambda x: int(int(x[0:9], 16) / 4096)), res))
+        # print(ref_str)
     return ref_str
-    
